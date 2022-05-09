@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--    form view-->
+    <record id="practice_new_form_view" model="ir.ui.view">
+        <field name="name">practice.new.form.view</field>
+        <field name="model">practice.new</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="Amey" string="amey">
+                        <group>
+                            <field name="sawan_name"/>
+                            <field name="gender" widget="radio"/>
+                            <field name="age"/>
+                            <field name="dob"/>
+                            <field name="write_uid"/>
+                            <field name="write_date"/>
+                        </group>
+
+                        <group>
+                            <field name="address"/>
+                            <field name="mobile"/>
+                            <field name="pin"/>
+                            <field name="file"/>
+                            <!--                            <field name="m2o"/>-->
+                            <!--                            <field name="m2m"/>-->
+                        </group>
+
+                    </group>
+                    <saperator color="green" col="6"/>
+                    <notebook>
+                        <pages string="First Page">
+                            <saperator style="background-color:black"></saperator>
+                        </pages>
+                         <pages string="Practice Line">
+                            <field name="practice_ids">
+                                <tree editable="top">
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <field name="product_id"/>
+                                    <field name="practice_id"/>
+                                </tree>
+                            </field>
+                        </pages>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!--tree view-->
+    <record id="practice_new_tree_view" model="ir.ui.view">
+        <field name="name">practice.new.tree.view</field>
+        <field name="model">practice.new</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sawan_name"/>
+                <field name="age"/>
+                <field name="gender" widget="radio"/>
+                <field name="dob"/>
+                <field name="address"/>
+                <field name="mobile"/>
+                <field name="pin"/>
+                <field name="file"/>
+                <!--                <field name="m2o"/>-->
+                <!--                <field name="m2m"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <!--action-->
+    <record id="action_practice_new" model="ir.actions.act_window">
+        <field name="name">Practic amey</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.new</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Hello Please Create a New Record
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_new_root" name="Practice"/>
+    <menuitem id="menu_new_root_child" name="New Practice" action="action_practice_new" parent="menu_new_root"/>
+    <menuitem id="menu_new_root_child_sale" name="Sales" action="sale.product_template_action" parent="menu_new_root"/>
+</odoo>
