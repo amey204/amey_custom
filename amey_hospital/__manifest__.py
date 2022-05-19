@@ -6,9 +6,21 @@
     'description': """Hospital Management System""",
     'category': 'Productivity',
     'website': 'https://www.odoomates.tech',
-    'depends' : [],
+    'depends' : [
+        'sale',
+        'mail',
+        'website_slides',
+        'hr',
+    ],
     'data': [
-        'views/patient.xml'
+        'security/ir.model.access.csv',
+        'data/sequences.xml',
+        'wizards/wizards_view.xml',
+        'views/patient.xml',
+        'views/sale.xml',
+        'views/kids_view.xml',
+        'views/patient_gender_view.xml',
+        'report/report.xml',
     ],
     'demo': [],
     'qweb': [],

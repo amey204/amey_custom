@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="wizards_basic_form" model="ir.ui.view">
+        <field name="name">wizards.basic.record</field>
+        <field name="model">wizards.basic</field>
+        <field name="arch" type="xml">
+            <form>
+                <group string="Patient From and To Date">
+                    <field name="patient_name"/>
+                    <field name="age"/>
+                    <field name="hide" invisible="1"/>
+                    <field name="country_id" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                    <field name="state_id" options="{'no_quick_create': True, 'no_create_edit' : True}"
+                           attrs="{'invisible':[('hide', '=', True)]}"/>
+                </group>
+                <footer>
+<!--                    <button name="print_detail" string="Print Report" class="btn-primary" type="object"/>-->
+                     <button string="Update Patient" type="object" name="change_profile"/>
+                    <button string="Cancel" special="cancel" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_basic" model="ir.actions.act_window">
+        <field name="name">Update Patient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wizards.basic</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizards_basic_form"/>
+        <field name="binding_model_id" ref="model_hospital_patient"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

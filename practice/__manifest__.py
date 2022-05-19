@@ -8,6 +8,7 @@
     'website': '',
     'depends' : [
         'base',
+        'sale',
     ],
     'data': [
         'security/ir.model.access.csv',
